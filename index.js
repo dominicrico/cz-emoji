@@ -9,6 +9,7 @@ const fuse = require('fuse.js')
 const util = require('util')
 
 const types = require('./lib/types')
+const { config } = require('process')
 
 const readFile = util.promisify(fs.readFile)
 
@@ -63,7 +64,16 @@ function getEmojiChoices({ types, symbol }) {
 }
 
 function formatIssues(issues) {
-  return issues ? 'Closes ' + (issues.match(/BM-\d+/g) || []).join(', closes ') : ''
+  const issueRegex = config.issues || '#\d+'
+
+  if (config.issue_link) {
+    const link = (issue) => `[](${config.issue_link.replace('{issue}', issue)})`
+    const converted_issues = (issues.match(new RegExp(issueRegex, 'g')) || []).map(i => link(i))
+    
+    return issues ? 'closes ' + converted_issues.join(', closes ') : ''
+  }
+
+  return issues ? 'closes ' + (issues.match(new RegExp(issueRegex, 'g')) || []).join(', closes ') : ''
 }
 
 /**
