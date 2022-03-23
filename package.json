@@ -1,6 +1,6 @@
 {
   "name": "cz-emoji-new",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Commitizen adapter formatting commit messages using emojis.",
   "author": "Dominic Rico Gómez <hello@coderocket.me>",
   "license": "MIT",
@@ -21,12 +21,6 @@
   "config": {
     "commitizen": {
       "path": "./index.js"
-    },
-    "cz-emoji": {
-      "conventional": true,
-      "format": "{emoji} {type}{scope}: {subject}",
-      "issues": "BM-\d+",
-      "issue_link": "https://bunch-technology.atlassian.net/browse/{issue}"
     }
   },
   "dependencies": {

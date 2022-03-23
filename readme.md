@@ -64,6 +64,64 @@ Configuring `cz-emoji` can be handled in the users home directory (`~/.czrc`) fo
 
 ### Configuration Options
 
+#### Conventional
+
+Use convential commit message format `const conventionalFormat = `{type}{scope}: {emoji} {subject}` 
+
+```json
+{
+  "config": {
+    "cz-emoji": {
+      "conventional": true
+    }
+  }
+}
+```
+
+#### Custom commit format
+
+Use custom commit message format
+
+Placeholders: {emoji}, {type}, {scope}, {subject}
+
+```json
+{
+  "config": {
+    "cz-emoji": {
+      "format": "{emoji} {type}{scope}: {subject}",
+    }
+  }
+}
+```
+
+#### Custom issue format
+
+Use custom issue format as regular expression. Note: mind the escaping of slashes within the package.json!
+
+```json
+{
+  "config": {
+    "cz-emoji": {
+      "issues": "JIRA-\\d+",
+    }
+  }
+}
+```
+
+#### Custom issue link
+
+Use custom issue link. {issue} will be replaced with the actuell issue number.
+
+```json
+{
+  "config": {
+    "cz-emoji": {
+      "issue_link": "https://something.atlassian.net/browse/{issue}",
+    }
+  }
+}
+```
+
 #### Types
 
 By default `cz-emoji` comes preconfigured with the [Gitmoji](https://gitmoji.carloscuesta.me/) types.
