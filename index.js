@@ -63,7 +63,7 @@ function getEmojiChoices({ types, symbol }) {
   }))
 }
 
-function formatIssues(issues) {
+function formatIssues(issues, config) {
   const issueRegex = config.issues || '#\d+'
 
   console.log(config.issues, config.issue_link)
@@ -188,7 +188,7 @@ function formatCommitMessage(answers, config) {
     answers.breakingBody && answers.breakingBody.trim().length !== 0
       ? wrap(`BREAKING CHANGE: ${answers.breakingBody.trim()}`, columns)
       : ''
-  const footer = formatIssues(answers.issues)
+  const footer = formatIssues(answers.issues, config)
 
   return [head, body, breaking, footer]
     .filter(Boolean)
