@@ -66,8 +66,6 @@ function getEmojiChoices({ types, symbol }) {
 function formatIssues(issues, config) {
   const issueRegex = config.issues || '#\d+'
 
-  console.log(config.issues, config.issue_link)
-
   if (config.issue_link) {
     const link = (issue) => `[${issue}](${config.issue_link.replace('{issue}', issue)})`
     const converted_issues = (issues.match(new RegExp(issueRegex, 'g')) || []).map(i => link(i))
