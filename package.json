@@ -21,6 +21,12 @@
   "config": {
     "commitizen": {
       "path": "./index.js"
+    },
+    "cz-emoji": {
+      "conventional": true,
+      "format": "{emoji} {type}{scope}: {subject}",
+      "issues": "BM-\d+",
+      "issue_link": "https://bunch-technology.atlassian.net/browse/{issue}"
     }
   },
   "dependencies": {
